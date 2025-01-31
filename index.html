@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./javascript.js" defer></script>
+        <title>weather-app</title>
+    </head>
+    <body>
+        <div class="search-section">
+            <div class="search-bar">
+                <label for="search-field"></label>
+                <input
+                    type="text"
+                    id="search-field"
+                    placeholder="select a city" />
+            </div>
+            <button class="get-data">get the weather</button>
+        </div>
+        <div class="weather-now">
+            <div class="weather-exp">
+                <div class="city-texts">
+                    <p class="city">City</p>
+                    <p class="humidity">rain possibilty 0%</p>
+                </div>
+                <p class="temperature">0°</p>
+            </div>
+            <img src="./images/sun.png" alt="" />
+        </div>
+        <div class="today-forcast">
+            <p>today's forcast</p>
+            <div class="forcast"></div>
+        </div>
+        <div class="air-conditions">
+            <p>air-conditions</p>
+            <div class="air-conditions-container">
+                <div class="part">
+                    <div class="sub-part">
+                        <div class="headline real-feel">
+                            <svg
+                                fill="#ffffff"
+                                viewBox="0 0 32 32"
+                                version="1.1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="#ffffff">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>temperature-quarter</title>
+                                    <path
+                                        d="M20.75 6.008c0-6.246-9.501-6.248-9.5 0v13.238c-1.235 1.224-2 2.921-2 4.796 0 3.728 3.022 6.75 6.75 6.75s6.75-3.022 6.75-6.75c0-1.875-0.765-3.572-2-4.796l-0.001-0zM16 29.25c-2.9-0-5.25-2.351-5.25-5.251 0-1.553 0.674-2.948 1.745-3.909l0.005-0.004 0.006-0.012c0.13-0.122 0.215-0.29 0.231-0.477l0-0.003c0.001-0.014 0.007-0.024 0.008-0.038l0.006-0.029v-13.52c-0.003-0.053-0.005-0.115-0.005-0.178 0-1.704 1.381-3.085 3.085-3.085 0.060 0 0.12 0.002 0.179 0.005l-0.008-0c0.051-0.003 0.11-0.005 0.17-0.005 1.704 0 3.085 1.381 3.085 3.085 0 0.063-0.002 0.125-0.006 0.186l0-0.008v13.52l0.006 0.029 0.007 0.036c0.015 0.191 0.101 0.36 0.231 0.482l0 0 0.006 0.012c1.076 0.966 1.75 2.361 1.75 3.913 0 2.9-2.35 5.25-5.25 5.251h-0zM16.75 21.367v-3.765c0-0.414-0.336-0.75-0.75-0.75s-0.75 0.336-0.75 0.75v0 3.765c-1.164 0.338-2 1.394-2 2.646 0 1.519 1.231 2.75 2.75 2.75s2.75-1.231 2.75-2.75c0-1.252-0.836-2.308-1.981-2.641l-0.019-0.005zM26.5 2.25c-1.795 0-3.25 1.455-3.25 3.25s1.455 3.25 3.25 3.25c1.795 0 3.25-1.455 3.25-3.25v0c-0.002-1.794-1.456-3.248-3.25-3.25h-0zM26.5 7.25c-0.966 0-1.75-0.784-1.75-1.75s0.784-1.75 1.75-1.75c0.966 0 1.75 0.784 1.75 1.75v0c-0.001 0.966-0.784 1.749-1.75 1.75h-0z"></path>
+                                </g>
+                            </svg>
+                            <p>Real Feel</p>
+                        </div>
+                        <p></p>
+                    </div>
+
+                    <div class="sub-part">
+                        <div class="headline humidity">
+                            <img src="" alt="" />
+                            <p>Humidity</p>
+                        </div>
+                        <p>.</p>
+                    </div>
+                </div>
+
+                <div class="part">
+                    <div class="sub-part">
+                        <div class="headline wind-speed">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="#ffffff">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M15.7639 7C16.3132 6.38625 17.1115 6 18 6C19.6569 6 21 7.34315 21 9C21 10.6569 19.6569 12 18 12H3M8.50926 4.66667C8.87548 4.2575 9.40767 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8H3M11.5093 19.3333C11.8755 19.7425 12.4077 20 13 20C14.1046 20 15 19.1046 15 18C15 16.8954 14.1046 16 13 16H3"
+                                        stroke="#ffffff"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                            <p>wind speed</p>
+                        </div>
+                        <p>.</p>
+                    </div>
+
+                    <div class="sub-part">
+                        <div class="headline uv-index">
+                            <img src="" alt="" />
+                            <p>UV index</p>
+                        </div>
+                        <p>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seven-days-forcast">7 days forcast</div>
+    </body>
+</html>

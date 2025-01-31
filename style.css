@@ -1,0 +1,181 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    padding: 12px 50px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(13, 1fr);
+    grid-template-areas:
+        "search-section search-section search-section seven-days-forcast"
+        "weather-now weather-now weather-now seven-days-forcast"
+        "weather-now weather-now weather-now seven-days-forcast"
+        "weather-now weather-now weather-now seven-days-forcast"
+        "weather-now weather-now weather-now seven-days-forcast"
+        "today-forcast today-forcast today-forcast seven-days-forcast"
+        "today-forcast today-forcast today-forcast seven-days-forcast"
+        "today-forcast today-forcast today-forcast seven-days-forcast"
+        "today-forcast today-forcast today-forcast seven-days-forcast"
+        "air-conditions air-conditions air-conditions seven-days-forcast"
+        "air-conditions air-conditions air-conditions seven-days-forcast"
+        "air-conditions air-conditions air-conditions seven-days-forcast"
+        "air-conditions air-conditions air-conditions seven-days-forcast";
+    height: 100vh;
+    background-color: #0B111d;
+}
+
+.search-section {
+    grid-area: search-section;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 9px;
+}
+
+.search-bar {
+    flex: 1;
+    padding-right: 46px;
+}
+.search-bar input {
+    width: 100%;
+    outline: none;
+    height: 30px;
+    border-radius: 7px;
+    border: 0px;
+    padding-left: 12px;
+    font-size: 14px;
+    background-color:  #202B3D;
+    color: white;
+    font-weight: 540;
+}
+
+.search-section button {
+    padding: 3px 16px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    height: 30px;
+    border-radius: 7px;
+    background-color: rgb(0, 47, 255);
+}
+
+.weather-now {
+    grid-area: weather-now;
+    margin: 0px 6px;
+    border-radius: 12px;
+    padding: 12px 46px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-exp {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.city-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.city {
+    font-size: 26px;
+}
+
+.temperature {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.weather-now img {
+    width: 180px;
+}
+
+.today-forcast{
+    grid-area: today-forcast;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+.forcast {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    height: 100%;
+    gap: 16px;
+    padding: 0px 30px;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202B3D;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.day img {
+    width: 65px;
+}
+
+.air-conditions {
+    grid-area: air-conditions;
+    background-color: #202B3D;
+    border-radius: 14px;
+    padding: 12px 24px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.air-conditions-container {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    font-size: 19px;
+    height: 100%;
+}
+
+.part {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.headline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.headline svg {
+    width: 25px;
+}
+
+.seven-days-forcast {
+    grid-area: seven-days-forcast;
+    background-color: blueviolet;
+}
