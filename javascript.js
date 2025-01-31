@@ -70,7 +70,7 @@ const graphicHandler = (function () {
         
         realFeel.innerHTML = response.currentConditions.feelslike+"°";
         humidity.innerHTML = response.currentConditions.humidity;
-        wind.innerHTML = response.currentConditions.windspeed;
+        wind.innerHTML = response.currentConditions.windspeed+" km/h";
         index.innerHTML = response.currentConditions.uvindex;    
     };
 
