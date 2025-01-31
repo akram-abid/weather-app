@@ -188,5 +188,41 @@ body {
 
 .seven-days-forcast {
     grid-area: seven-days-forcast;
-    background-color: blueviolet;
+    background-color: #202B3D;
+    border-radius: 14px;
+    margin: 6px;
+    color: white;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
+
+.week-forcast-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 100%;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.day-forcast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #283549;
+    padding: 0px 14px;
+    border-radius: 14px;
+}
+
+.day-state {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.day-state img {
+    width: 30px;
+}
+

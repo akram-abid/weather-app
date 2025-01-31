@@ -33,15 +33,19 @@ const graphicHandler = (function () {
 
     const fillDays = (response) => {
         const date = new Date();
-        const forcast = document.querySelector(".forcast");
-        forcast.innerHTML = "";
+        const forecast = document.querySelector(".forcast");
+        forecast.innerHTML = "";
         const nowHour = date.getHours();
-
-        for(let i=0; i<5; i++){
-            fillADay(response.days[0], nowHour+i);
+        
+        for (let i = 0; i < 5; i++) {
+          const computedHour = (nowHour + i) % 24;
+          const dayIndex = Math.floor((nowHour + i) / 24);
+          
+          if (response.days[dayIndex]) {
+            fillADay(response.days[dayIndex], computedHour);
+          }
         }
-
-    };
+      };
 
     const fillADay = (conds, hour) => {
         const forcast = document.querySelector(".forcast");
@@ -50,8 +54,11 @@ const graphicHandler = (function () {
         const temp = document.createElement("p");
         const dayContainer = document.createElement("div");
         dayContainer.classList.add("day");
-
-        getPicture(conds.hours[hour].icon, img);
+        try{
+            getPicture(conds.hours[hour].icon, img);
+        }catch(e){
+            console.log("that's all");
+        }
         temp.innerHTML = conds.hours[hour].temp+"°";
         hourText.innerHTML = conds.hours[hour].datetime;
 
@@ -74,11 +81,50 @@ const graphicHandler = (function () {
         index.innerHTML = response.currentConditions.uvindex;    
     };
 
+    const fillWeeekForcast = (response) => {
+        const container = document.querySelector(".week-forcast-container"); 
+        container.innerHTML = "";
+
+        for(let i = 1; i <= 7; i++){
+            fillDay(response.days[i]);
+        }
+    };
+
+    const fillDay = (response) => {
+        const container = document.querySelector(".week-forcast-container");
+
+        const dayForcast = document.createElement("div");
+        dayForcast.classList.add("day-forcast");
+
+        const day = document.createElement("p");
+        
+        const Daystate = document.createElement("div");
+        Daystate.classList.add("day-state");
+
+        const img = document.createElement("img");
+        const state = document.createElement("p");
+
+        Daystate.appendChild(img);
+        Daystate.appendChild(state);
+
+        dayForcast.appendChild(day);
+        dayForcast.appendChild(Daystate);
+
+        container.appendChild(dayForcast);
+
+        getPicture(response.icon, img);
+        day.innerHTML = response.datetime;
+        state.innerHTML = response.icon;
+
+        
+    };
+
     return {
         getPicture,
         nowWeather,
         fillDays,
-        fillAirConditions
+        fillAirConditions,
+        fillWeeekForcast
     }
 
 })();
@@ -86,7 +132,7 @@ const graphicHandler = (function () {
 let data;
 
 function getData(location) {
-    return fetch(
+    try{return fetch(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${apiKey}`
     )
         .then(function (response) {
@@ -95,7 +141,9 @@ function getData(location) {
         .then(function (response) {
             //console.log(response);
             return response;
-        });
+        });}catch(e){
+            console.log("bob");
+        }
 }
 
 const btn = document.querySelector("button");
@@ -107,5 +155,6 @@ btn.addEventListener("click", async () => {
     graphicHandler.nowWeather(retriveData);
     graphicHandler.fillDays(retriveData);
     graphicHandler.fillAirConditions(retriveData);
-    console.log("hak",retriveData.currentConditions.humidity);
+    graphicHandler.fillWeeekForcast(retriveData);
+    console.log("hak",retriveData);
 });
