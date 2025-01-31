@@ -138,6 +138,7 @@ body {
 }
 
 .air-conditions {
+    margin: 6px;
     grid-area: air-conditions;
     background-color: #202B3D;
     border-radius: 14px;
@@ -163,6 +164,16 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
+}
+
+.sub-part {
+    display: 12px;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.sub-part>p{
+    margin: 8px;
 }
 
 .headline {

@@ -33,6 +33,8 @@ const graphicHandler = (function () {
 
     const fillDays = (response) => {
         const date = new Date();
+        const forcast = document.querySelector(".forcast");
+        forcast.innerHTML = "";
         const nowHour = date.getHours();
 
         for(let i=0; i<5; i++){
@@ -61,18 +63,22 @@ const graphicHandler = (function () {
     };
 
     fillAirConditions = (response) => {
-        const realFeel = document.querySelector(".real-feel");
-        const humidity = document.querySelectorAll(".humidity");
-        const wind = document.querySelector(".wind-speed");
-        const index = document.querySelector(".uv-index");
+        const realFeel = document.querySelector(".real-feel+p");
+        const humidity = document.querySelectorAll(".humidity+p");
+        const wind = document.querySelector(".wind-speed+p");
+        const index = document.querySelector(".uv-index+p");
         
-        realFeel.innerHTML = "";    
+        realFeel.innerHTML = response.currentConditions.feelslike+"°";
+        humidity.innerHTML = response.currentConditions.humidity;
+        wind.innerHTML = response.currentConditions.windspeed;
+        index.innerHTML = response.currentConditions.uvindex;    
     };
 
     return {
         getPicture,
         nowWeather,
-        fillDays
+        fillDays,
+        fillAirConditions
     }
 
 })();
@@ -100,5 +106,6 @@ btn.addEventListener("click", async () => {
     const retriveData = await getData(input.value);
     graphicHandler.nowWeather(retriveData);
     graphicHandler.fillDays(retriveData);
-    console.log(retriveData);
+    graphicHandler.fillAirConditions(retriveData);
+    console.log("hak",retriveData.currentConditions.humidity);
 });
